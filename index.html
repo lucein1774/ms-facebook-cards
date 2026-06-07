@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Post Cards — Campaign Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #f0f0f0; font-family: 'Barlow', sans-serif; min-height: 100vh; }
+
+.header {
+  background: #111;
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid #c41e1e;
+}
+.header-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.header-sub {
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+}
+
+.main { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+
+.section { margin-bottom: 48px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #333;
+}
+.section-count {
+  font-size: 11px;
+  color: #bbb;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: auto;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.campaigns { display: flex; flex-direction: column; gap: 10px; }
+
+.campaign-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.campaign-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  border-color: #ccc;
+}
+.campaign-accent {
+  width: 4px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+.campaign-info { flex: 1; }
+.campaign-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #111;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.campaign-meta {
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+}
+.campaign-tag {
+  font-size: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.campaign-arrow {
+  font-size: 18px;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  background: #fff;
+  border: 1.5px dashed #ddd;
+  padding: 24px 20px;
+  text-align: center;
+  color: #bbb;
+  font-size: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.instructions {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  padding: 20px 24px;
+  margin-top: 48px;
+}
+.instructions h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 14px;
+}
+.step {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 20px;
+  height: 20px;
+  background: #c41e1e;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.step p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+.step strong { color: #111; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="header-title">Facebook Post Cards</div>
+    <div class="header-sub">Campaign Dashboard</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- MAJOR SURPLUS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="brand-dot" style="background:#c41e1e;"></div>
+      <div class="section-title">Major Surplus &amp; Survival</div>
+      <div class="section-count" id="ms-count"></div>
+    </div>
+    <div class="campaigns" id="ms-campaigns">
+
+      <!-- ADD NEW MAJOR SURPLUS CAMPAIGNS ABOVE THIS LINE -->
+      <a href="mountain-house-specials.html" class="campaign-card">
+        <div class="campaign-accent" style="background:#c41e1e;"></div>
+        <div class="campaign-info">
+          <div class="campaign-name">Mountain House Specials</div>
+          <div class="campaign-meta">June 2026 &mdash; 7 cards &mdash; Major Surplus Retail</div>
+        </div>
+        <div class="campaign-tag" style="background:#c41e1e;">Active</div>
+        <div class="campaign-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- VOODOO TACTICAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="brand-dot" style="background:#444;"></div>
+      <div class="section-title">Voodoo Tactical</div>
+      <div class="section-count" id="vt-count"></div>
+    </div>
+    <div class="campaigns" id="vt-campaigns">
+      <div class="empty-state">No campaigns yet — coming soon</div>
+    </div>
+  </div>
+
+  <!-- HOW TO ADD A CAMPAIGN -->
+  <div class="instructions">
+    <h3>How to Add a New Campaign</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <p>Upload the specials email to <strong>Claude</strong> in the ms-facebook-cards project. Specify the brand and account type.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <p>Claude generates a post card HTML file. Download it and <strong>rename it</strong> using the convention: <code>major-surplus-[campaign]-[month]-[year].html</code></p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <p>Upload the file to this GitHub repository via <strong>Add file → Upload files</strong>. It goes live within 60 seconds.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <p>Edit <strong>index.html</strong> and copy one of the <code>&lt;a class="campaign-card"&gt;</code> blocks above the "ADD NEW" comment. Update the href, name, and meta fields.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Auto-count campaigns per brand
+document.getElementById('ms-count').textContent =
+  document.querySelectorAll('#ms-campaigns a.campaign-card').length + ' campaign(s)';
+document.getElementById('vt-count').textContent =
+  document.querySelectorAll('#vt-campaigns a.campaign-card').length + ' campaign(s)';
+</script>
+
+</body>
+</html>
