@@ -6,7 +6,7 @@ A hosted tool for generating branded, ready-to-post Facebook images from product
 
 ## Live Site
 
-**[yourusername.github.io/ms-facebook-cards](https://yourusername.github.io/ms-facebook-cards)**
+**[lucein1774.github.io/ms-facebook-cards](https://lucein1774.github.io/ms-facebook-cards)**
 
 ---
 
@@ -124,6 +124,4 @@ Click **Apply to All Cards** after editing to update every link in the file. Ind
 
 ---
 
-## Project History
 
-Built with Claude (Anthropic) in the `ms-facebook-cards` project. To make changes or generate new campaigns, open that project in Claude and upload the new specials email.
