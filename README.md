@@ -6,7 +6,7 @@ A hosted tool for generating branded, ready-to-post Facebook images from product
 
 ## Live Site
 
-**[yourusername.github.io/ms-facebook-cards](https://yourusername.github.io/ms-facebook-cards)**
+**[lucein1774.github.io/ms-facebook-cards](https://lucein1774.github.io/ms-facebook-cards)**
 
 ---
 
